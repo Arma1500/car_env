@@ -76,7 +76,7 @@ class SimpleDrivingEnv(gym.Env):
         #dist_to_goal = math.sqrt(((carpos[0] - goalpos[0]) ** 2 +
         #                          (carpos[1] - goalpos[1]) ** 2))
         reward = max(self.prev_dist_to_goal - dist_to_goal, 0)
-        print('reward: ' + reward)
+        print('reward: ' + str(reward))
         #reward = -dist_to_goal
         self.prev_dist_to_goal = dist_to_goal
 
