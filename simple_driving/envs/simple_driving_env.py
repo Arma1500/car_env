@@ -9,8 +9,6 @@ from simple_driving.resources.goal import Goal
 import matplotlib.pyplot as plt
 import time
 
-import os
-
 RENDER_HEIGHT = 720
 RENDER_WIDTH = 960
 
@@ -48,8 +46,6 @@ class SimpleDrivingEnv(gym.Env):
         self.render_rot_matrix = None
         self.reset()
         self._envStepCounter = 0
-
-        self.obstacle = None
 
     def step(self, action):
         # Feed action to the car and get observation of car's state
@@ -118,11 +114,6 @@ class SimpleDrivingEnv(gym.Env):
 
         # Visual element of the goal
         self.goal_object = Goal(self._p, self.goal)
-
-        # TASK 4 Obstacle __________________________________________________________
-        obstacle_filename = os.path.join(os.path.dirname(__file__), 'obstacle.urdf')
-        self.obstacle = self._p.loadURDF(fileName=obstacle_filename,
-                   basePosition=[10, 10, 0])
 
         # Get observation to return
         carpos = self.car.get_observation()
