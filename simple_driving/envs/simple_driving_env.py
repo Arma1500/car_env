@@ -85,7 +85,7 @@ class SimpleDrivingEnv(gym.Env):
             self.reached_goal = True
 
         ob = car_ob
-        return ob, reward, self.done, dict()
+        return ob, reward, self.done, self.reached_goal, dict()
 
     def seed(self, seed=None):
         self.np_random, seed = gym.utils.seeding.np_random(seed)
