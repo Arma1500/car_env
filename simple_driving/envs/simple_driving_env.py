@@ -85,6 +85,7 @@ class SimpleDrivingEnv(gym.Env):
             self.done = True
             self.reached_goal = True
             reward += 50 # TASK 3 - BONUS 50 if Goal Reached
+            print("goal reached, reward: " + str(reward))
 
         ob = car_ob
         return ob, reward, self.done, dict()
